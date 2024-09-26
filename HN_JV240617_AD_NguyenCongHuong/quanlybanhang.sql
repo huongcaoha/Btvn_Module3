@@ -4,9 +4,9 @@ use QUANLYBANHANG ;
 -- ************************* bài 1 ***************************
 create table CUSTOMERS (
 customer_id varchar(4) primary key not null ,
-name varchar(100) not null unique ,
-email varchar(100) not null ,
-phone varchar(25) not null ,
+name varchar(100) not null ,
+email varchar(100) not null unique,
+phone varchar(25) not null unique ,
 address varchar(255) not null
 );
 
@@ -171,7 +171,7 @@ values ("H001","P002",14999999,1),
     DELIMITER ;
     
 -- 6. Tạo PROCEDURE lấy thông tin của tất cả sản phẩm. [3 điểm] 
-		DELIMITER //
+	DELIMITER //
 		create procedure get_info_all_product(IN id_customer varchar(4))
         begin
 			select * from products ;
