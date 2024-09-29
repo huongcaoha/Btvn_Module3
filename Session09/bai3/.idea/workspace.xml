@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52ae4f1c-043a-407a-b6f3-4bfc4b1dfd92" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/ProductServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/model/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/service/IProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/service/ProductInterfaceIpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/webapp/addProduct.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/webapp/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/webapp/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/webapp/product.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="c5f6e538-ceda-42f5-9c4c-8db22fa18069" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -43,42 +33,42 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="2mcFHKlxkLeZ4hL8ZXF0DYuz28e" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2mdh4zjuzQGrlR5GuBB7kU4ZOrb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build ngay26thang9nam20241.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 9.0.944.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build bai3.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Tomcat Server.Tomcat 9.0.944.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.944" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.944" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="hot-swap-classes" />
       <deployment>
-        <artifact name="Gradle : com.ra : ngay26thang9nam20241-1.0-SNAPSHOT.war">
+        <artifact name="Gradle : com.ra : bai3-1.0-SNAPSHOT.war">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="6a75d331-6282-423e-bd8f-7d1b269a0d5e" />
+        <option name="BASE_DIRECTORY_NAME" value="0e4cbbfd-d31c-49e8-a93b-3a269589ba97" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -86,7 +76,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51255" />
+        <option name="DEBUG_PORT" value="55698" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -151,7 +141,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : com.ra : ngay26thang9nam20241-1.0-SNAPSHOT.war" />
+          <artifact name="Gradle : com.ra : bai3-1.0-SNAPSHOT.war" />
         </option>
       </method>
     </configuration>
@@ -159,13 +149,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="52ae4f1c-043a-407a-b6f3-4bfc4b1dfd92" name="Changes" comment="" />
-      <created>1727367872510</created>
+      <changelist id="c5f6e538-ceda-42f5-9c4c-8db22fa18069" name="Changes" comment="" />
+      <created>1727412177607</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1727367872510</updated>
-      <workItem from="1727367873665" duration="921000" />
-      <workItem from="1727450418238" duration="104000" />
+      <updated>1727412177607</updated>
+      <workItem from="1727412178628" duration="2901000" />
     </task>
     <servers />
   </component>

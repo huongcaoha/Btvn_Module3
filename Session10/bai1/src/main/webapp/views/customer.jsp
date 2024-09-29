@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dell
-  Date: 9/27/2024
-  Time: 10:30 PM
+  Date: 9/29/2024
+  Time: 10:07 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -29,10 +30,10 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/login">login</a>
+                <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
@@ -49,7 +50,29 @@
         </form>
     </div>
 </nav>
-  <a href=<%=request.getContextPath()%>"login.jsp"> Go Tádasdasdas</a>
+    <h2 style="text-align: center">Danh Sách Khách Hàng</h2>
+<table class="table" style="text-align: center">
+    <thead>
+    <tr>
+        <th>Tên</th>
+        <th>Ngày Sinh</th>
+        <th>Địa Chỉ</th>
+        <th>Ảnh</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${customers}" var="customer">
+        <tr style="line-height: 100px">
+            <td scope="row">${customer.name}</td>
+            <td scope="row">${customer.birthday}</td>
+            <td scope="row">${customer.address}</td>
+            <td scope="row"><img src="${customer.image}" alt="ảnh" style="width: 100px ; height: 100px"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

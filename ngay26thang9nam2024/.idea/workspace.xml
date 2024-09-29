@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6612f8b2-3708-43ee-86fb-76e6c8aab27f" name="Changes" comment="">
+    <list default="true" id="c130f3c8-049d-4070-bf2d-0210730b2f0f" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/LoginServlet.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/ProductServlet.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/java/com/ra/demo/model/entity/Product.java" afterDir="false" />
@@ -14,8 +14,6 @@
       <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/webapp/home.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/webapp/login.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Session09/demo/src/main/webapp/product.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ra/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngay22thang9nam2024/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngay22thang9nam2024/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngay22thang9nam2024/.idea/dataSources.xml" beforeDir="false" />
@@ -55,33 +53,37 @@
       <change beforePath="$PROJECT_DIR$/../ngay24thang9nam2024/src/main/webapp/WEB-INF/home.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngay24thang9nam2024/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngay24thang9nam2024/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/src/main/java/com/ra/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/src/main/java/com/ra/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/src/main/java/com/ra/controller/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam2024/src/main/webapp/views/home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam20241/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngay26thang9nam20241/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ra/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ra/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/model/dao/UserInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/model/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/model/service/UserInterfaceiplm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ra/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay26thang9nam20241/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ngay26thang9nam20241/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ngay27thang9nam2024/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/src/main/java/com/ra/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/src/main/java/com/ra/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/src/main/java/com/ra/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/src/main/java/com/ra/model/dao/UserInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/src/main/java/com/ra/model/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/src/main/java/com/ra/model/service/UserInterfaceiplm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngay27thang9nam2024/src/main/webapp/views/home.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,50 +113,42 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="2mewvpQirnhy70bBCNCOUVuP1Hx" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2mbNmTBgzEc6KhRAAv2itZ8P6I2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build ngay27thang9nam2024.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 9.0.944.executor": "Run",
-    "Tomcat Server.home.jsp.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.database.main",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build ngay26thang9nam2024.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.944.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\dell\IdeaProjects\Btvn_Module3\ngay27thang9nam2024\src\main\webapp\WEB-INF" />
-    </key>
-  </component>
+}</component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.944" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.944" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="UPDATING_POLICY" value="restart-server" />
+    <configuration name="Tomcat 9.0.944" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.944" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
       <deployment>
-        <artifact name="Gradle : com.ra : ngay27thang9nam2024-1.0-SNAPSHOT.war">
+        <artifact name="Gradle : com.ra : ngay26thang9nam2024-1.0-SNAPSHOT.war">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="a9d58918-bb01-4c8f-a179-fa86fa41086d" />
-        <option name="HTTP_PORT" value="8081" />
+        <option name="BASE_DIRECTORY_NAME" value="a9675ece-be3c-4314-bb94-f13d9ca82795" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -162,7 +156,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51738" />
+        <option name="DEBUG_PORT" value="55062" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -227,7 +221,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : com.ra : ngay27thang9nam2024-1.0-SNAPSHOT.war" />
+          <artifact name="Gradle : com.ra : ngay26thang9nam2024-1.0-SNAPSHOT.war" />
         </option>
       </method>
     </configuration>
@@ -235,12 +229,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6612f8b2-3708-43ee-86fb-76e6c8aab27f" name="Changes" comment="" />
-      <created>1727450586445</created>
+      <changelist id="c130f3c8-049d-4070-bf2d-0210730b2f0f" name="Changes" comment="" />
+      <created>1727341479637</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1727450586445</updated>
-      <workItem from="1727450587530" duration="4109000" />
+      <updated>1727341479637</updated>
+      <workItem from="1727341480681" duration="3463000" />
+      <workItem from="1727364298911" duration="3147000" />
+      <workItem from="1727450427117" duration="159000" />
     </task>
     <servers />
   </component>

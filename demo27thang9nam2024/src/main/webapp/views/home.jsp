@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: dell
   Date: 9/27/2024
-  Time: 10:30 PM
+  Time: 11:49 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -29,10 +29,13 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home Page <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/login">login</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="${pageContext.request.contextPath}/product">Product</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
@@ -49,8 +52,6 @@
         </form>
     </div>
 </nav>
-  <a href=<%=request.getContextPath()%>"login.jsp"> Go Tádasdasdas</a>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
