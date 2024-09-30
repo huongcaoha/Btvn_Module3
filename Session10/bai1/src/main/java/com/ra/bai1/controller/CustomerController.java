@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -21,6 +20,6 @@ public class CustomerController
         customers.add(new Customer(4,"Trần ĐĂng Khoa","1983-08-17","Hà Tây","/image/huongcaoha.jpg"));
         customers.add(new Customer(5,"Nguyễn Đình Thi","1983-08-19","Hà Nội","/image/huongcaoha.jpg"));
         model.addAttribute("customers",customers);
-        return "customer" ;
+        return "/WEB-INF/customer.jsp";
     }
 }
