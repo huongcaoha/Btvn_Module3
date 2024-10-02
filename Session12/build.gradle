@@ -25,13 +25,12 @@ dependencies {
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.18'
-    // https://mvnrepository.com/artifact/jstl/jstl
-    implementation group: 'jstl', name: 'jstl', version: '1.2'
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.11.RELEASE'
+
+
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Nếu bạn sử dụng Thymeleaf
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
