@@ -25,13 +25,23 @@ dependencies {
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.18'
-    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
-    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.1.2.RELEASE'
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.32.Final'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
+    implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.6.15.Final'
+    // https://mvnrepository.com/artifact/org.springframework/spring-orm
+    implementation group: 'org.springframework', name: 'spring-orm', version: '5.3.18'
+    // https://mvnrepository.com/artifact/jstl/jstl
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
+    // https://mvnrepository.com/artifact/at.favre.lib/bcrypt
+    implementation group: 'at.favre.lib', name: 'bcrypt', version: '0.9.0'
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    // https://mvnrepository.com/artifact/org.mindrot/jbcrypt
+    implementation group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.15.RELEASE'
 }
 
 test {
