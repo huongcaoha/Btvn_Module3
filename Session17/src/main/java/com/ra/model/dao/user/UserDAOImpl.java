@@ -23,21 +23,70 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public boolean add(User user) {
-        return false;
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+            return true ;
+        }catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+            return false ;
+        }finally {
+            session.close();
+        }
     }
 
     @Override
     public boolean update(User user) {
-        return false;
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            session.update(user);
+            session.getTransaction().commit();
+            return true ;
+        }catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+            return false ;
+        }finally {
+            session.close();
+        }
     }
 
     @Override
     public boolean delete(User user) {
-        return false;
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            session.delete(user);
+            session.getTransaction().commit();
+            return true ;
+        }catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+            return false ;
+        }finally {
+            session.close();
+        }
     }
 
     @Override
     public User findById(int id) {
-        return null;
+        User user = new User();
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+           user = session.get(User.class,id);
+            session.getTransaction().commit();
+        }catch (Exception e){
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return user ;
     }
+
 }
