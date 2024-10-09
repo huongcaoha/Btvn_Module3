@@ -64,11 +64,13 @@
             <td scope="row" th:text="${product.price}"></td>
             <td scope="row" th:text="${product.category.name}"></td>
             <td scope="row" th:text="${product.description}"></td>
-            <img th:src="${product.image}" th:style="width == 100px , height == 100px" alt="Product Image">
+            <td><img th:src="${product.image}"  alt="Product Image" style="width: 100px ; height: 100px"></td>
             <td scope="row" th:text="${product.status ? 'Active' : 'Inactive'}"></td>
             <td>
                 <a class="btn btn-primary" th:href="@{'/product/edit/' + ${product.id}}">Edit</a>
                 <a class="btn btn-danger" th:href="@{'/product/delete/' + ${product.id}}"  th:onclick="|return confirm('Do you want to delete this item?')|">Delete</a>
+                <a class="btn btn-success" th:href="@{'/cart/add/' + ${product.id}}"  th:onclick="|return confirm('Do you want to add to cart ?')|">Add to Cart</a>
+
             </td>
 
         </tr>

@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Title</title>
     <!-- Required meta tags -->
@@ -14,39 +15,81 @@
 <div class="container">
     <div class="col-lg-6">
         <h1 class="text-center text-primary">Create New</h1>
-        <form action="" method="post" th:object="${product}" enctype="multipart/form-data" style="width: 500px; height: 500px; margin: 100px;">
+<!--        <form action="" method="post" th:object="${product}" enctype="multipart/form-data" style="width: 500px; height: 500px; margin: 100px;">-->
+<!--            <div class="form-group">-->
+<!--                <label>Product Name :</label>-->
+<!--                <input type="text" class="form-control" th:field="*{name}">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label>Price :</label>-->
+<!--                <input type="number" class="form-control" th:field="*{price}">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label>Category</label>-->
+<!--                <select class="form-control" th:field="*{category.id}" >-->
+<!--                    <option th:each="cate : ${categories}" th:text="${cate.name}" th:value="${cate.id}"></option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label>Description :</label>-->
+<!--                <input type="text" class="form-control" th:field="*{description}">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label>File :</label>-->
+<!--                <input type="file" class="form-control" th:name="im">-->
+<!--            </div>-->
+<!--            <div class="form-check form-check-inline">-->
+<!--                <label class="form-check-label">-->
+<!--                    <input class="form-check-input" type="radio" th:field="*{status}" th:value="true"> Active-->
+<!--                </label>-->
+<!--                <label class="form-check-label">-->
+<!--                    <input class="form-check-input" type="radio" th:field="*{status}" th:value="false"> Inactive-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <input type="submit" value="Create" class="btn btn-success">-->
+<!--        </form>-->
+
+        <form action="" method="post" enctype="multipart/form-data" th:object="${product}">
             <div class="form-group">
-                <label>Product Name :</label>
-                <input type="text" class="form-control" th:field="*{name}">
+                <label>Product Name</label>
+                <input type="text" class="form-control" th:field="${product.name}" >
             </div>
+
             <div class="form-group">
-                <label>Price :</label>
-                <input type="text" class="form-control" th:field="*{price}">
+                <label>Price</label>
+                <input type="number" class="form-control" th:field="${product.price}" >
             </div>
+
             <div class="form-group">
                 <label>Category</label>
-                <select class="form-control" th:field="*{category}">
-                    <option value="" disabled selected>Chọn danh mục</option>
-                    <option th:each="cate : ${categories}" th:text="${cate.name}" th:value="${cate}"></option>
+                <select class="form-control" th:field="${product.category.id}">
+                    <option th:each="cate : ${categories}" th:value="${cate.id}" th:text="${cate.name}"></option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label>Description :</label>
-                <input type="text" class="form-control" th:field="*{description}">
+                <label>Description</label>
+                <input type="text" class="form-control" th:field="${product.description}" >
             </div>
+
             <div class="form-group">
-                <label>Image :</label>
-                <input type="file" class="form-control" name="image" th:field="*{image}">
+                <label>Image</label>
+                <input type="file" class="form-control" th:name="im" >
             </div>
-            <div class="form-check form-check-inline">
+
+            <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" th:field="*{status}" th:value="true"> Active
+                    <input type="radio" class="form-check-input" th:field="${product.status}"  value="true" checked>
+                    Active
                 </label>
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" th:field="*{status}" th:value="false"> Inactive
+                    <input type="radio" class="form-check-input" th:field="${product.status}"  value="false">
+                    Inactive
                 </label>
             </div>
+
             <input type="submit" value="Create" class="btn btn-success">
+
         </form>
     </div>
 </div>

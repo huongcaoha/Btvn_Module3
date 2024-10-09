@@ -39,28 +39,44 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String add(Model model, @ModelAttribute Product product, @RequestParam("image") MultipartFile image) {
+    public String add(Model model, @ModelAttribute Product product,@RequestParam("im") MultipartFile image) {
+
         // Kiểm tra xem file có được chọn không
-        if (!image.isEmpty()) {
+//        if (!image.isEmpty()) {
+//            try {
+//                String filePath = "C:/Users/dell/IdeaProjects/Btvn_Module3/Session14/src/main/resources/images/" + image.getOriginalFilename(); // Cập nhật đường dẫn
+//                File dest = new File(filePath);
+//                image.transferTo(dest);
+//                product.setImage("images/" + image.getOriginalFilename()); // Đường dẫn hình ảnh
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                model.addAttribute("error", "Lỗi khi tải lên hình ảnh!");
+//                return "product/create"; // Đảm bảo đường dẫn chính xác
+//            }
+//        }
+//
+//        // Kiểm tra và lưu sản phẩm
+//        if (productService.add(product)) {
+//            return "redirect:/product";
+//        } else {
+//            model.addAttribute("error", "Lỗi không thể tạo sản phẩm!");
+//            return "product/create"; // Đảm bảo đường dẫn chính xác
+//        }
+        if (image != null) {
+            String filePath = "C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session14\\src\\main\\resources\\images\\" + image.getOriginalFilename();
+            File dest = new File(filePath);
             try {
-                String filePath = "C:/Users/dell/IdeaProjects/Btvn_Module3/Session14/src/main/resources/images" + image.getOriginalFilename(); // Cập nhật đường dẫn
-                File dest = new File(filePath);
                 image.transferTo(dest);
-                product.setImage("images/" + image.getOriginalFilename()); // Đường dẫn hình ảnh
             } catch (IOException e) {
-                e.printStackTrace();
-                model.addAttribute("error", "Lỗi khi tải lên hình ảnh!");
-                return "product/create"; // Đảm bảo đường dẫn chính xác
+                throw new RuntimeException(e);
+            }
+            product.setImage("images/" + image.getOriginalFilename());
+
+            if (productService.add(product)) {
+                return "redirect:/product";
             }
         }
-
-        // Kiểm tra và lưu sản phẩm
-        if (productService.add(product)) {
-            return "redirect:/product";
-        } else {
-            model.addAttribute("error", "Lỗi không thể tạo sản phẩm!");
-            return "product/create"; // Đảm bảo đường dẫn chính xác
-        }
+        return  "product/create" ;
     }
 
     @GetMapping("/delete/{id}")

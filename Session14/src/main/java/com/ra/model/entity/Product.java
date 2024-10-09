@@ -30,7 +30,7 @@ public class Product {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "cateId", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "cateId", referencedColumnName = "id")
     private Category category;
 
     public Product() {

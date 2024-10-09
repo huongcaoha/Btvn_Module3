@@ -38,8 +38,14 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
     @Bean
     public CommonsMultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(10 * 1024 * 1024); // 10MB
+        multipartResolver.setMaxUploadSize(50 * 1024 * 1024); // 50MB
         return multipartResolver;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/images/**")
+                .addResourceLocations("file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session14\\src\\main\\resources\\images\\");
     }
 
     @Bean
@@ -69,12 +75,6 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         return viewResolver;
     }
 
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/images/**")
-                .addResourceLocations("classpath:/images/");
-    }
 
     @Bean
     public DataSource dataSource(){

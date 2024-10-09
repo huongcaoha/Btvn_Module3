@@ -22,11 +22,12 @@ public class Category {
     public Category() {
     }
 
-    public Category(int id, String name, String description, boolean status) {
+    public Category(int id, String name, String description, boolean status, Set<Product> products) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.status = status;
+        this.products = products;
     }
 
     public int getId() {
@@ -59,5 +60,13 @@ public class Category {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 }
