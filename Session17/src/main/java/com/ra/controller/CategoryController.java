@@ -1,7 +1,8 @@
 package com.ra.controller;
 
 import com.ra.model.entity.Category;
-import com.ra.model.service.CategoryService;
+import com.ra.model.entity.dto.CategoryDTO;
+import com.ra.model.service.category.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,57 +16,69 @@ import java.util.List;
 @RequestMapping("/category")
 public class CategoryController {
     @Autowired
-    private CategoryService categoryService ;
+    private CategoryServiceImpl categoryServiceImpl;
     @GetMapping
-    public String display(Model model){
-        List<Category> categories = categoryService.getList();
+    public String display(Model model , @RequestParam(value = "page" ,defaultValue = "1") int page , @RequestParam(value = "size",defaultValue = "5") int size){
+        List<Category> categories = categoryServiceImpl.getCateByPage(page,size);
+        double totalPage = Math.ceil((double) categoryServiceImpl.getList().size() / size);
+        model.addAttribute("page",page);
+        model.addAttribute("size",size);
+        model.addAttribute("totalPage",totalPage);
         model.addAttribute("categories",categories);
-        return "category/display";
+        return "admin/category/display";
     }
 
     @GetMapping("/create")
-    public String create(Model model , @Valid Category category){
-        model.addAttribute("category",category);
-        return "category/create";
+    public String create(Model model ,  CategoryDTO categoryDTO){
+        model.addAttribute("category",categoryDTO);
+        return "admin/category/create";
     }
 
     @PostMapping("/create")
-    public String add(@Valid @ModelAttribute Category category , BindingResult result){
+    public String add(@Valid @ModelAttribute(name = "category") CategoryDTO categoryDTO , BindingResult result){
         if(result.hasErrors()){
-            return "category/create";
+            return "admin/category/create";
         }
 
-        if(categoryService.add(category)){
+        if(categoryServiceImpl.add(categoryDTO)){
             return "redirect:/category";
         }else {
-            return "category/create";
+            return "admin/category/create";
         }
     }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable int id , Model model){
-        Category category = categoryService.findById(id);
-        model.addAttribute("category",category);
-        return "category/update";
+        Category category = categoryServiceImpl.findById(id);
+        CategoryDTO categoryDTO = categoryServiceImpl.converseCategory(category);
+        model.addAttribute("category",categoryDTO);
+        return "admin/category/update";
     }
 
     @PostMapping("/edit/{id}")
-    public String update(@PathVariable int id ,@Valid @ModelAttribute Category category){
+    public String update(@PathVariable int id ,@Valid @ModelAttribute("category") CategoryDTO categoryDTO , BindingResult result){
+        Category category = new Category();
         category.setId(id);
-        if(categoryService.update(category)){
+        category.setName(categoryDTO.getName());
+        category.setDescription(categoryDTO.getDescription());
+        category.setStatus(categoryDTO.isStatus());
+        if(result.hasErrors()){
+            return "admin/category/update";
+        }
+        if(categoryServiceImpl.update(category)){
             return "redirect:/category";
         }else {
-            return "/category/update";
+            return "admin/category/update";
         }
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id){
-        Category category = categoryService.findById(id);
-        if(categoryService.delete(category)){
+        Category category = categoryServiceImpl.findById(id);
+        if(categoryServiceImpl.delete(category)){
             return "redirect:/category";
         }else {
-            return "/category/update";
+            return "admin/category/update";
         }
     }
 

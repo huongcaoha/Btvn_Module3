@@ -1,12 +1,15 @@
 package com.ra.model.entity;
 
 import com.sun.istack.NotNull;
+
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Set;
-
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Entity
 @Table(name = "categories")
 public class Category {

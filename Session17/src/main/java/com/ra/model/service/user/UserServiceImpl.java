@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private SessionFactory sessionFactory;
     @Override
-    public List<User> getList() {
-        return userDAO.getList();
+    public List<User> getList(int page , int itemPerPage) {
+        return userDAO.getList(page,itemPerPage);
     }
 
     @Override
@@ -63,16 +63,36 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean checkPhoneExist(String phone) {
-        List<User> users = new ArrayList<>();
+       long count = 0 ;
         try (Session session = sessionFactory.openSession()){
-           users = session.createQuery(" from User where User .phone = :phone",User.class).setParameter("phone",phone).list();
+           count = session.createQuery("select count(u) from User u where u .phone = :phone",Long.class)
+                   .setParameter("phone",phone)
+                   .getSingleResult();
         }catch (Exception e){
             e.printStackTrace();
         }
-        if(users.isEmpty()){
-            return false;
+        if (count == 0){
+            return false ;
         }else {
             return true ;
         }
     }
+
+    @Override
+    public double getTotalPage(int itemPerPage, int page) {
+        List<User> users = new ArrayList<>();
+        try (Session session = sessionFactory.openSession()){
+           users = session.createQuery("from User ",User.class).list();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  Math.ceil((double) users.size() / itemPerPage) ;
+    }
+
+    @Override
+    public List<User> searchListByNameOrPhone(List<User> users , String search) {
+       return  users.stream().filter(user -> user.getPhone().contains(search) || user.getFullName().contains(search)).toList();
+    }
+
+
 }

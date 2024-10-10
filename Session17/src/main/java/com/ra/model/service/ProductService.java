@@ -37,4 +37,9 @@ public class ProductService implements ManagementInterface<Product> {
     public Product findById(int id) {
         return productDAO.findById(id);
     }
+
+    @Override
+    public List<Product> getCateByPage(int page, int size) {
+        return null;
+    }
 }

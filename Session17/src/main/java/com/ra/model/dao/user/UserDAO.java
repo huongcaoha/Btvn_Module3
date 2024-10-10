@@ -5,7 +5,7 @@ import com.ra.model.entity.User;
 import java.util.List;
 
 public interface UserDAO {
-    List<User> getList();
+    List<User> getList(int page , int itemPerPage);
     boolean add(User user);
     boolean update(User user);
     boolean delete(User user);

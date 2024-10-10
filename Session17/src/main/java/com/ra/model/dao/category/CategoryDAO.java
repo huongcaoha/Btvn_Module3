@@ -24,6 +24,7 @@ public class CategoryDAO implements ManagementInterface<Category> {
         return categories;
     }
 
+
     @Override
     public boolean add(Category object) {
         Session session = sessionFactory.openSession();
@@ -90,5 +91,16 @@ public class CategoryDAO implements ManagementInterface<Category> {
             session.close();
         }
         return category ;
+    }
+
+    @Override
+    public List<Category> getCateByPage(int page, int size) {
+        List<Category> categories = new ArrayList<>();
+        try (Session session = sessionFactory.openSession()) {
+            categories = session.createQuery("from Category ", Category.class).setFirstResult((page-1)*size).setMaxResults(size).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return categories;
     }
 }

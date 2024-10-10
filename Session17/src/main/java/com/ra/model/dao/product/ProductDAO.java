@@ -91,4 +91,9 @@ public class ProductDAO implements ManagementInterface<Product> {
         }
         return product;
     }
+
+    @Override
+    public List<Product> getCateByPage(int page, int size) {
+        return null;
+    }
 }

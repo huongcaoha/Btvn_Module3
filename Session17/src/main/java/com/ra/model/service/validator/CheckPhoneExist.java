@@ -14,4 +14,5 @@ public class CheckPhoneExist implements ConstraintValidator<UserValidator,String
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
         return !userService.checkPhoneExist(s);
     }
+
 }

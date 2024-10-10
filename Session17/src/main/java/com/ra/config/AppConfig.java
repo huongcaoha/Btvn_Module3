@@ -36,6 +36,7 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         this.applicationContext = applicationContext;
     }
 
+
     @Bean
     public CommonsMultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
@@ -45,12 +46,8 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/assets/**","/css/**","/fonts/**","/images/**","/js/**","/tinymce/**")
-                .addResourceLocations("file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\resources\\assets\\css\\",
-                        "file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\resources\\assets\\fonts\\",
-                        "file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\resources\\assets\\images\\",
-                        "file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\resources\\assets\\js\\",
-                        "file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\resources\\assets\\tinymce\\"
+        registry.addResourceHandler("/assets/**", "/uploads/**")
+                .addResourceLocations("file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\resources\\assets\\","file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\webapp\\uploads\\"
                         );
     }
 
@@ -121,6 +118,7 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         properties.setProperty("hibernate.show_sql","true");
         properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL8Dialect");
         properties.setProperty("hibernate.hbm2ddl.auto","update");
+        properties.setProperty("javax.persistence.validation.mode","none");
         sessionFactoryBean.setHibernateProperties(properties);
         return sessionFactoryBean;
     }

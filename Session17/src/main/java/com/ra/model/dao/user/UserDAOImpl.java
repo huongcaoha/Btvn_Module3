@@ -12,9 +12,9 @@ public class UserDAOImpl implements UserDAO{
     @Autowired
     private SessionFactory sessionFactory ;
     @Override
-    public List<User> getList() {
+    public List<User> getList(int page , int itemPerPage) {
         try (Session session = sessionFactory.openSession()){
-           return session.createQuery("from User ",User.class).list();
+           return session.createQuery("from User",User.class).setFirstResult((page-1) * itemPerPage).setMaxResults(itemPerPage).list();
         }catch (Exception e){
             e.printStackTrace();
             return null ;

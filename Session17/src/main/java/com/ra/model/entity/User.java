@@ -1,5 +1,6 @@
 package com.ra.model.entity;
 
+import com.ra.model.service.validator.UserValidator;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -21,7 +22,7 @@ public class User {
     @Column(name = "phone",nullable = false , unique = true)
     @NotBlank(message = "phone number cannot blank !")
     @Pattern(regexp = "^0[35789][0-9]{8}$", message = "phone number invalid format ! ")
-    @CheckPhoneExist
+    @UserValidator(message = "phone exist!")
     private String phone ;
 
     @Column(name = "email",nullable = false,unique = true)
