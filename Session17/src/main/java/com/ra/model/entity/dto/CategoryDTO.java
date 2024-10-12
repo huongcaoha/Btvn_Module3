@@ -15,6 +15,7 @@ public class CategoryDTO {
     @Size(min = 3 , message = "Minimum name 3 characters")
     @CategoryUnique(message = "Category name existed")
     private String name ;
+    private String oldName ;
     private String description ;
 
     private boolean status ;

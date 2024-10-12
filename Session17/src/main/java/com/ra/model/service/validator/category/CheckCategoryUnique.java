@@ -1,5 +1,6 @@
 package com.ra.model.service.validator.category;
 
+import com.ra.controller.CategoryController;
 import com.ra.model.service.category.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,6 @@ public class CheckCategoryUnique implements ConstraintValidator<CategoryUnique,S
     }
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return !categoryServiceImpl.checkNameExist(s);
+        return !categoryServiceImpl.checkNameExist(s, CategoryController.cateOldName);
     }
 }

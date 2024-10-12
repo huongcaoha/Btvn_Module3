@@ -1,5 +1,6 @@
 package com.ra.model.entity;
 
+import com.ra.model.service.validator.product.ProductUnique;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Product {
     @Column(name = "name",nullable = false)
     @NotNull(message = "product name not null !")
     @Size(min = 5 , max = 100 , message = "length name from 5 to 100 character !")
+    @ProductUnique
     private String name ;
 
     @Column(name = "price",nullable = false)

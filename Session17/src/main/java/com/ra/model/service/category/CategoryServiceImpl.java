@@ -56,9 +56,16 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryDAO.getCateByPage(page,size);
     }
 
-    public boolean checkNameExist(String name){
+    public boolean checkNameExist(String newName,String oldName){
         List<Category> categories = getList();
-        int count = (int) categories.stream().filter(category -> category.getName().equalsIgnoreCase(name)).count();
+
+        int count = 0 ;
+        if(oldName != null){
+            count = (int) categories.stream().filter(category -> category.getName().equalsIgnoreCase(newName) && !category.getName().equals(oldName)).count();
+        }else {
+            count = (int) categories.stream().filter(category -> category.getName().equalsIgnoreCase(newName)).count();
+        }
+
         return count > 0 ;
     }
 }

@@ -59,6 +59,16 @@
                         <label>Description</label>
                         <input type="text" class="form-control" th:field="*{description}">
                     </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" th:field="*{status}" value="true">
+                            Active
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" th:field="*{status}" value="false">
+                            Inactive
+                        </label>
+                    </div>
                     <input type="submit" value="Create">
                 </form>
                 <!-- /.box-body -->

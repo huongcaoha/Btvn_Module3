@@ -14,7 +14,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/category")
+
 public class CategoryController {
+
+    public static String cateOldName = "" ;
     @Autowired
     private CategoryServiceImpl categoryServiceImpl;
     @GetMapping
@@ -50,6 +53,7 @@ public class CategoryController {
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable int id , Model model){
         Category category = categoryServiceImpl.findById(id);
+        cateOldName = category.getName();
         CategoryDTO categoryDTO = categoryServiceImpl.converseCategory(category);
         model.addAttribute("category",categoryDTO);
         return "admin/category/update";

@@ -1,6 +1,7 @@
 package com.ra.model.dao;
 
 import com.ra.model.entity.Category;
+import com.ra.model.entity.Search;
 
 import java.util.List;
 
