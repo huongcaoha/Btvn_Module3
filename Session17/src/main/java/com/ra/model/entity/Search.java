@@ -7,8 +7,6 @@ public class Search {
     private int cate_id ;
 
     public Search() {
-        this.description = "";
-
     }
 
     public Search( double minPrice, double maxPrice, String description, int cate_id) {

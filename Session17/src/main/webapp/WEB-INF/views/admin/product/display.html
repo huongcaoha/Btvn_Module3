@@ -69,7 +69,7 @@
             <div class="form-group">
               <label>Category</label>
               <select class="custom-select" th:field="*{cate_id}">
-                <option th:value="-1" th:text="Select"></option>
+                <option th:value="-1">Select All</option>
                 <option th:each="cate : ${categories}" th:value="${cate.id}" th:text="${cate.name}"></option>
               </select>
             </div>

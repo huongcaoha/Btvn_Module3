@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 @Repository
 public class ProductDAO implements ManagementInterface<Product> {
     @Autowired
@@ -165,6 +167,6 @@ public class ProductDAO implements ManagementInterface<Product> {
 
     public boolean checkSearchNull(Search search){
         return search.getCate_id() <= 0 && search.getMinPrice() <= 0 &&
-                search.getMaxPrice() <= 0 && search.getDescription() == null;
+                search.getMaxPrice() <= 0 && Objects.equals(search.getDescription(), "");
     }
 }

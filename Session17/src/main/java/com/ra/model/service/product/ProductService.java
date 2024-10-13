@@ -15,7 +15,7 @@ public interface ProductService {
     Product findById(int id);
     boolean checkNameExist(String newName , String oldName);
     String uploadImage(MultipartFile file);
-    Product converseDTOToProduct(ProductDTO productDTO);
+    Product converseDTOToProduct(Product product ,ProductDTO productDTO);
     List<Product> getProductByPage(int page , int size) ;
     double getTotalPage(int totalItem ,int itemPerPage);
     List<Product> searchProduct(Search search , int page , int size);

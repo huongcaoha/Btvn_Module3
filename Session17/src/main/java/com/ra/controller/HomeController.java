@@ -15,7 +15,8 @@ public class HomeController {
     public String home(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
        String username = "" ;
-       boolean login = (boolean) session.getAttribute("login");
+        Boolean loginValue = (Boolean) session.getAttribute("login");
+        boolean login = (loginValue != null) ? loginValue : false;
        if(login){
            User user = (User) session.getAttribute("user");
            username = user.getFullName();

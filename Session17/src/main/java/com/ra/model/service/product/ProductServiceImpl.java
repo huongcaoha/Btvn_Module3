@@ -85,11 +85,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product converseDTOToProduct(ProductDTO productDTO) {
+    public Product converseDTOToProduct(Product product ,ProductDTO productDTO) {
         Category category = categoryDAO.findById(productDTO.getCategoryId());
-        Product product = new Product();
         product.setName(productDTO.getName());
-        product.setImage(uploadImage(productDTO.getImage()));
+        if(productDTO.getImage().getSize() > 0){
+            product.setImage(uploadImage(productDTO.getImage()));
+        }
         product.setDescription(productDTO.getDescription());
         product.setPrice(productDTO.getPrice());
         product.setCategory(category);

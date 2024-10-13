@@ -40,7 +40,7 @@ public class ProductController {
         List<Product> products = new ArrayList<>();
         products = productServiceImpl.searchProduct(searchValue,page,size);
         double totalPage = 1 ;
-        if(productServiceImpl.checkSearchNull(searchValue)){
+        if(!searchStatus){
             totalPage = productServiceImpl.getTotalPage(productServiceImpl.getList().size(),size);
         }else {
             totalPage = productServiceImpl.getTotalPage(products.size(),size);
@@ -62,6 +62,16 @@ public class ProductController {
 
     @PostMapping
     public String show( @ModelAttribute("search") Search search){
+        if(search.getDescription() == null){
+            search.setDescription("");
+        }
+//        if(search.getMinPrice() ==){
+//            search.setMinPrice(0.0);
+//        }
+//        if(search.getMaxPrice() == null){
+//            search.setMaxPrice(0.0);
+//        }
+        searchStatus = !productServiceImpl.checkSearchNull(search);
         searchValue = search ;
         return "redirect:/product" ;
     }
@@ -83,7 +93,7 @@ public class ProductController {
             model.addAttribute("categories", categories);
             return "/admin/product/create" ;
         }
-        Product product = productServiceImpl.converseDTOToProduct(productDTO);
+        Product product = productServiceImpl.converseDTOToProduct(new Product(),productDTO);
         if(productServiceImpl.add(product)){
                 return "redirect:/product";
         }
@@ -109,8 +119,8 @@ public class ProductController {
 
     @PostMapping("/edit/{id}")
     public String update(@PathVariable int id,@ModelAttribute("product") @Valid ProductDTO productDTO , BindingResult result, Model model){
+        Product product = productServiceImpl.findById(id);
         if(result.hasErrors()){
-            Product product = productServiceImpl.findById(id);
             productOldName = product.getName();
             ProductDTO productDTO1 = new ProductDTO();
             productDTO1.setName(product.getName());
@@ -122,14 +132,14 @@ public class ProductController {
             model.addAttribute("categories",categories);
             model.addAttribute("product",productDTO1);
             model.addAttribute("image",product.getImage());
-            return "redirect:/product/edit"+id ;
+            return "redirect:/product/edit/"+id ;
         }
-       Product product = productServiceImpl.converseDTOToProduct(productDTO);
+        product = productServiceImpl.converseDTOToProduct(product ,productDTO);
        product.setId(id);
         if(productServiceImpl.update(product)){
             return "redirect:/product";
         }else {
-            return "redirect:/product/edit"+id ;
+            return "redirect:/product/edit/"+id ;
         }
 
     }
