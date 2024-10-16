@@ -51,7 +51,9 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/user/assets/**").addResourceLocations("classpath:/user/assets/");
+        registry.addResourceHandler("/user/**","/admin/**" , "/uploads/**")
+                .addResourceLocations("classpath:/user/assets/","classpath:/admin/assets/" ,
+                        "file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\webapp\\uploads\\");
 
     }
 

@@ -13,7 +13,7 @@ public class InterceptorUser implements HandlerInterceptor {
         if(user != null){
             return  true;
         }else {
-            response.sendRedirect("login");
+            response.sendRedirect("/login");
             return false;
         }
 

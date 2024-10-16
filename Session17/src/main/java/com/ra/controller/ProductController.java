@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/")
 public class ProductController {
     public static String productOldName = "";
     public static Search searchValue = new Search();
@@ -57,7 +57,7 @@ public class ProductController {
         model.addAttribute("size", size);
         model.addAttribute("totalPage", totalPage);
         model.addAttribute("products", products);
-        return "/admin/product/display";
+        return "home";
     }
 
     @PostMapping
