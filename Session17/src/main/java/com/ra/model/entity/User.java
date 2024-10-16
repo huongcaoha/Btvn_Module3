@@ -6,6 +6,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -25,16 +26,19 @@ public class User {
     @UserValidator(message = "phone exist!")
     private String phone ;
 
-    @Column(name = "email",nullable = false,unique = true)
+    @Column(name = "email",nullable = false)
     @Email(message = "email not valid format !")
     private String email ;
 
     @Column(name = "password")
     @Size(min = 6 , max = 255,message = "Password of 6 characters or more !")
     private String password ;
-    @Column(name = "role")
-    @ColumnDefault("1")
-    private int role ;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+    joinColumns = @JoinColumn(name = "user_id") ,
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
     @Column(name = "status")
     @ColumnDefault("true")
@@ -44,28 +48,17 @@ public class User {
     private Date createdDate ;
 
     public User() {
-        this.createdDate = new Date();
-        this.role = 1 ;
-        this.status = true ;
     }
 
-    public User(int id, String fullName, String phone, String email, String password) {
+    public User(int id, String fullName, String phone, String email, String password, Set<Role> roles, boolean status, Date createdDate) {
         this.id = id;
         this.fullName = fullName;
         this.phone = phone;
         this.email = email;
         this.password = password;
-        this.role = 1;
-        this.status = true;
-        this.createdDate = new Date();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        this.roles = roles;
+        this.status = status;
+        this.createdDate = createdDate;
     }
 
     public int getId() {
@@ -100,12 +93,20 @@ public class User {
         this.email = email;
     }
 
-    public int getRole() {
-        return role;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public boolean isStatus() {

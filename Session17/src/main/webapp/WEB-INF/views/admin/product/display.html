@@ -59,11 +59,13 @@
             <div class="form-group">
               <label>Min price</label>
               <input type="number" class="form-control" th:field="*{minPrice}">
+              <h5 th:errors="*{minPrice}" class="text-danger"></h5>
             </div>
 
             <div class="form-group">
               <label>Max price</label>
               <input type="number" class="form-control" th:field="*{maxPrice}">
+              <h5 th:errors="*{maxPrice}" class="text-danger"></h5>
             </div>
 
             <div class="form-group">

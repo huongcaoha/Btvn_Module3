@@ -159,10 +159,10 @@ public class ProductDAO implements ManagementInterface<Product> {
                     .list();
 
         } catch (Exception e) {
-            e.printStackTrace(); // In lỗi ra console
+            e.printStackTrace();
         }
 
-        return new ArrayList<>(); // Đảm bảo luôn trả về danh sách
+        return new ArrayList<>();
     }
 
     public boolean checkSearchNull(Search search){

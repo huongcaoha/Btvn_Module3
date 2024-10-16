@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label>Image</label>
                         <input type="file" class="form-control" th:field="*{image}">
-                        <div  th:errors="*{image}" style="color: red"></div>
+                        <div th:if="${errorImage != null}" th:text="${errorImage}" class="text-danger"></div>
                     </div>
                     <div class="form-group">
                         <label>Category</label>

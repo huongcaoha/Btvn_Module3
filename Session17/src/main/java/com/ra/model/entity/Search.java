@@ -1,7 +1,13 @@
 package com.ra.model.entity;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Search {
+    @NotNull(message = "min price not blank !")
     private double minPrice ;
+
+    @NotNull(message = "max price not blank !")
     private double maxPrice ;
     private String description;
     private int cate_id ;

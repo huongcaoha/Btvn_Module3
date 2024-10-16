@@ -1,12 +1,19 @@
 package com.ra.model.dao.user;
 
+import com.ra.model.entity.Role;
 import com.ra.model.entity.User;
+import com.ra.model.entity.constant.RoleEnum;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Repository
 public class UserDAOImpl implements UserDAO{
     @Autowired
@@ -23,6 +30,13 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public boolean add(User user) {
+        Set<Role> roles = new HashSet<>();
+        roles.add(findRoleByName(RoleEnum.USER));
+        user.setPassword(BCrypt.hashpw(user.getPassword(),BCrypt.gensalt(12)));
+        user.setRoles(roles);
+        user.setEmail("");
+        user.setStatus(true);
+        user.setCreatedDate(new Date());
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
@@ -87,6 +101,17 @@ public class UserDAOImpl implements UserDAO{
             session.close();
         }
         return user ;
+    }
+
+    @Override
+    public Role findRoleByName(RoleEnum roleEnum) {
+        try (Session session = sessionFactory.openSession();){
+           return session.createQuery("from Role as r where r.roleName = :_roleName",Role.class)
+                    .setParameter("_roleName",roleEnum).getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null ;
     }
 
 }

@@ -4,11 +4,14 @@ import com.ra.model.dao.user.UserDAO;
 import com.ra.model.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
@@ -51,8 +54,8 @@ public class UserServiceImpl implements UserService{
         if(users.isEmpty()){
            return null ;
         }else {
-            User user = users.getFirst();
-            if (user.getPassword().equals(password)){
+            User user = users.get(0);
+            if (BCrypt.checkpw(password,user.getPassword())){
                 return user;
             }else {
                 return null ;
@@ -91,7 +94,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> searchListByNameOrPhone(List<User> users , String search) {
-       return  users.stream().filter(user -> user.getPhone().contains(search) || user.getFullName().contains(search)).toList();
+       return  users.stream().filter(user -> user.getPhone().contains(search) || user.getFullName().contains(search)).collect(Collectors.toList());
     }
 
 

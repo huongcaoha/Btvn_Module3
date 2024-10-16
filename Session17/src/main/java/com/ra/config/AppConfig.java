@@ -13,15 +13,20 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 import javax.sql.DataSource;
+import java.util.Locale;
 import java.util.Properties;
 
 @Configuration
@@ -46,9 +51,8 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/assets/**", "/uploads/**")
-                .addResourceLocations("file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\resources\\assets\\","file:C:\\Users\\dell\\IdeaProjects\\Btvn_Module3\\Session17\\src\\main\\webapp\\uploads\\"
-                        );
+        registry.addResourceHandler("/user/assets/**").addResourceLocations("classpath:/user/assets/");
+
     }
 
     @Override
@@ -61,13 +65,6 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
         validator.setValidationMessageSource(messageSource());
         return validator;
-    }
-
-    @Bean
-    public MessageSource messageSource(){
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("messages");
-        return messageSource;
     }
 
     @Bean
@@ -123,5 +120,33 @@ public class AppConfig implements WebMvcConfigurer , ApplicationContextAware {
         return sessionFactoryBean;
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new InterceptorsAdmin()).addPathPatterns("/admin/**");
+        registry.addInterceptor(new InterceptorUser()).addPathPatterns("/cart/**");
+        LocaleChangeInterceptor changeInterceptor = new LocaleChangeInterceptor();
+        changeInterceptor.setParamName("language");
+        registry.addInterceptor(changeInterceptor);
+    }
 
+    @Bean
+    public MessageSource messageSource(){
+        ResourceBundleMessageSource resourceBundleMessageSource = new ResourceBundleMessageSource();
+        resourceBundleMessageSource.setBasename("language");
+        resourceBundleMessageSource.setDefaultEncoding("utf-8");
+        return resourceBundleMessageSource;
+    }
+    @Bean
+    public LocaleResolver localeResolver()
+    {
+        final SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+        localeResolver.setDefaultLocale(new Locale("en"));
+        return localeResolver;
+    }
+//    @Bean
+//    public MessageSource messageSource(){
+//        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+//        messageSource.setBasename("messages");
+//        return messageSource;
+//    }
 }

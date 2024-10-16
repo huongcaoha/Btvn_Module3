@@ -22,9 +22,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-    public static String productOldName = "" ;
+    public static String productOldName = "";
     public static Search searchValue = new Search();
-    public static boolean searchStatus = true ;
+    public static boolean searchStatus = true;
     private final ProductServiceImpl productServiceImpl;
 
     private final CategoryServiceImpl categoryServiceImpl;
@@ -36,72 +36,74 @@ public class ProductController {
     }
 
     @GetMapping
-    public String display(Model model,@RequestParam(value = "page",defaultValue = "1") int page , @RequestParam(value = "size",defaultValue = "5") int size){
+    public String display(Model model, @RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "size", defaultValue = "5") int size) {
         List<Product> products = new ArrayList<>();
-        products = productServiceImpl.searchProduct(searchValue,page,size);
-        double totalPage = 1 ;
-        if(!searchStatus){
-            totalPage = productServiceImpl.getTotalPage(productServiceImpl.getList().size(),size);
-        }else {
-            totalPage = productServiceImpl.getTotalPage(products.size(),size);
+        products = productServiceImpl.searchProduct(searchValue, page, size);
+        double totalPage = 1;
+        if (!searchStatus) {
+            totalPage = productServiceImpl.getTotalPage(productServiceImpl.getList().size(), size);
+        } else {
+            totalPage = productServiceImpl.getTotalPage(products.size(), size);
         }
         Search search = searchValue;
-        if(search.getDescription() == null){
+        if (search.getDescription() == null) {
             search.setDescription("");
         }
 
         List<Category> categories = categoryServiceImpl.getList();
         model.addAttribute("categories", categories);
-        model.addAttribute("search" , search);
-        model.addAttribute("page",page);
-        model.addAttribute("size",size);
-        model.addAttribute("totalPage",totalPage);
-        model.addAttribute("products",products);
-        return "/admin/product/display" ;
+        model.addAttribute("search", search);
+        model.addAttribute("page", page);
+        model.addAttribute("size", size);
+        model.addAttribute("totalPage", totalPage);
+        model.addAttribute("products", products);
+        return "/admin/product/display";
     }
 
     @PostMapping
-    public String show( @ModelAttribute("search") Search search){
-        if(search.getDescription() == null){
+    public String show(@ModelAttribute("search") @Valid Search search, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("search", search);
+            return "redirect:/product";
+        }
+        if (search.getDescription() == null) {
             search.setDescription("");
         }
-//        if(search.getMinPrice() ==){
-//            search.setMinPrice(0.0);
-//        }
-//        if(search.getMaxPrice() == null){
-//            search.setMaxPrice(0.0);
-//        }
         searchStatus = !productServiceImpl.checkSearchNull(search);
-        searchValue = search ;
-        return "redirect:/product" ;
+        searchValue = search;
+        return "redirect:/product";
     }
 
     @GetMapping("/create")
-    public String create(Model model){
+    public String create(Model model) {
         ProductDTO productDTO = new ProductDTO();
         List<Category> categories = categoryServiceImpl.getList();
         model.addAttribute("categories", categories);
-        model.addAttribute("product",productDTO);
+        model.addAttribute("product", productDTO);
         return "/admin/product/create";
     }
 
     @PostMapping("create")
-    public String add(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult result,Model model){
-        if(result.hasErrors()){
-            model.addAttribute("product",productDTO);
+    public String add(@ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult result, Model model) {
+        if (result.hasErrors() || productDTO.getImage().getSize() <= 0) {
+            model.addAttribute("product", productDTO);
             List<Category> categories = categoryServiceImpl.getList();
             model.addAttribute("categories", categories);
-            return "/admin/product/create" ;
+            model.addAttribute("errorImage", "file not blank !");
+            return "/admin/product/create";
         }
-        Product product = productServiceImpl.converseDTOToProduct(new Product(),productDTO);
-        if(productServiceImpl.add(product)){
-                return "redirect:/product";
+        Product product = productServiceImpl.converseDTOToProduct(new Product(), productDTO);
+        if (productDTO.getImage().getSize() <= 0) {
+            product.setImage("");
         }
-        return "/admin/product/create" ;
+        if (productServiceImpl.add(product)) {
+            return "redirect:/product";
+        }
+        return "/admin/product/create";
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable int id , Model model){
+    public String edit(@PathVariable int id, Model model) {
         Product product = productServiceImpl.findById(id);
         productOldName = product.getName();
         ProductDTO productDTO = new ProductDTO();
@@ -111,16 +113,16 @@ public class ProductController {
         productDTO.setStatus(product.getStatus());
         productDTO.setCategoryId(product.getCategory().getId());
         List<Category> categories = categoryServiceImpl.getList();
-        model.addAttribute("categories",categories);
-        model.addAttribute("product",productDTO);
-        model.addAttribute("image",product.getImage());
+        model.addAttribute("categories", categories);
+        model.addAttribute("product", productDTO);
+        model.addAttribute("image", product.getImage());
         return "/admin/product/update";
     }
 
     @PostMapping("/edit/{id}")
-    public String update(@PathVariable int id,@ModelAttribute("product") @Valid ProductDTO productDTO , BindingResult result, Model model){
+    public String update(@PathVariable int id, @ModelAttribute("product") @Valid ProductDTO productDTO, BindingResult result, Model model) {
         Product product = productServiceImpl.findById(id);
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             productOldName = product.getName();
             ProductDTO productDTO1 = new ProductDTO();
             productDTO1.setName(product.getName());
@@ -129,23 +131,23 @@ public class ProductController {
             productDTO1.setStatus(product.getStatus());
             productDTO1.setCategoryId(product.getCategory().getId());
             List<Category> categories = categoryServiceImpl.getList();
-            model.addAttribute("categories",categories);
-            model.addAttribute("product",productDTO1);
-            model.addAttribute("image",product.getImage());
-            return "redirect:/product/edit/"+id ;
+            model.addAttribute("categories", categories);
+            model.addAttribute("product", productDTO1);
+            model.addAttribute("image", product.getImage());
+            return "redirect:/product/edit/" + id;
         }
-        product = productServiceImpl.converseDTOToProduct(product ,productDTO);
-       product.setId(id);
-        if(productServiceImpl.update(product)){
+        product = productServiceImpl.converseDTOToProduct(product, productDTO);
+        product.setId(id);
+        if (productServiceImpl.update(product)) {
             return "redirect:/product";
-        }else {
-            return "redirect:/product/edit/"+id ;
+        } else {
+            return "redirect:/product/edit/" + id;
         }
 
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id){
+    public String delete(@PathVariable int id) {
         Product product = productServiceImpl.findById(id);
         productServiceImpl.delete(product);
         return "redirect:/product";
