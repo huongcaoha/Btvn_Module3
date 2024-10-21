@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+<<<<<<< HEAD
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/productdetail/add.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/productdetail" />
+=======
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/layout/layout.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/layout" />
+>>>>>>> 67b0d2a71dc72574975800e0dbc7700905cc05e6
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/layout/layout.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/user/layout" />
+      </map>
+    </option>
+  </component>
+</project>
